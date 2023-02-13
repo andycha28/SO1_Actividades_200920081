@@ -3,7 +3,7 @@
 path="https://api.github.com/users/"
 nowf="$(date)"
 now="$(date +'%Y-%m-%d')"
-fileName="/tmp/$now/saludo.log"
+fileName="/tmp/$now/saludos.log"
 
 
 
@@ -19,7 +19,7 @@ else
     id=$(wget $url -q -O - | jq -r  '.id') 
     user=$(wget $url -q -O - | jq -r  '.login') 
     createdAt=$(wget $url -q -O - | jq -r  '.created_at') 
-    rsp="$nowf >> Hola $user  User ID:  $id , Cuenta fue creada:  $createdAt "
+    rsp="$nowf >> Hola $user . User ID:  $id , Cuenta fue creada el:  $createdAt "
         if [ -f "$fileName" ]; then 
             echo  $rsp>> $fileName
         else
